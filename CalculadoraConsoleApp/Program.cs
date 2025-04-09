@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            // v8 - Somar e subtrair dois números em sequência com escrita três casas decimais, mostrando o histórico de operações
+            // v8 - Todas as operações aritméticas com dois números em sequência com escrita três casas decimais,
+            // além da tabuada, quardando e mostrando o histórico de operações
 
             //vetores
             string[] historicoOperacoes = new string[100];
@@ -26,6 +27,7 @@
                 Console.WriteLine("5 - Tabuada");
                 Console.WriteLine("6 - Histórico de Operações");
                 Console.WriteLine("S - Sair");
+                Console.WriteLine("*Sempre utilizar ',' para dizimas periódicas");
                 Console.WriteLine("----------------------------------------------------");
                 string opcao = Console.ReadLine();
 
@@ -124,7 +126,12 @@
                 Console.WriteLine("----------------------------------------------------");
                 Console.WriteLine("A " + opcao + " dos números " + dblPrimeiroNumero + " e " + dblSegundoNumero + " é igual a: ");
 
-                Console.WriteLine(resultado.ToString("F3")); //F3 = Numero de casas decimais que serão mostradas
+                if (resultado % 1 == 0) //Verificar se o resultado é inteiro
+                {
+                    Console.WriteLine(resultado); 
+                }
+                else
+                    Console.WriteLine(resultado.ToString("F3")); //F3 = Numero de casas decimais que serão mostradas
 
                 Console.ReadLine();
             }
